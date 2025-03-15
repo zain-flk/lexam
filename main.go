@@ -45,7 +45,7 @@ func worker(id int, jobs <-chan queue.QueueData, wg *sync.WaitGroup, client *s3.
 	for job := range jobs {
 		startTime := time.Now() // Start job timer
 
-		err := r2.DownloadFile(client, r2.BUCKET_NAME, job.FileName, r2.DEST_PATH)
+		err := r2.DownloadFile(client, config.BUCKET_NAME, job.FileName, config.DEST_PATH)
 		if err != nil {
 			log.Fatalf("Error downloading %s file: %v", job.FileName, err)
 		}
@@ -65,6 +65,8 @@ func worker(id int, jobs <-chan queue.QueueData, wg *sync.WaitGroup, client *s3.
 }
 
 func main() {
+	config.Init()
+
 	startTime := time.Now() // Start total execution timer
 	fmt.Println("Read data from Queue")
 	downloads, err := queue.ReadQueue("queue.json")

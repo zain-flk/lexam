@@ -6,28 +6,21 @@ import (
 	"io"
 	"os"
 
+	env "langexam/config"
+
 	"github.com/aws/aws-sdk-go-v2/aws"
 	"github.com/aws/aws-sdk-go-v2/config"
 	"github.com/aws/aws-sdk-go-v2/credentials"
 	"github.com/aws/aws-sdk-go-v2/service/s3"
 )
 
-// Cloudflare R2 Configuration
-const (
-	R2_ENDPOINT = "https://4591e02aa7736d0dee5ffc97e0494cd7.r2.cloudflarestorage.com/langexam"
-	BUCKET_NAME = "langexam"
-	DEST_PATH   = "downloads"
-	ACCESS_KEY  = ""
-	SECRET_KEY  = ""
-)
-
 func CreateS3Client() (*s3.Client, error) {
 	cfg, err := config.LoadDefaultConfig(context.TODO(),
 		config.WithCredentialsProvider(credentials.NewStaticCredentialsProvider(
-			ACCESS_KEY, SECRET_KEY, "",
+			env.ACCESS_KEY, env.SECRET_KEY, "",
 		)),
 		config.WithEndpointResolver(aws.EndpointResolverFunc(func(service, region string) (aws.Endpoint, error) {
-			return aws.Endpoint{URL: R2_ENDPOINT}, nil
+			return aws.Endpoint{URL: env.R2_ENDPOINT}, nil
 		})),
 	)
 	if err != nil {

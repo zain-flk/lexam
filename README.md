@@ -35,8 +35,4 @@ go run main.go
 ```
 ```
 
-## Troubleshooting
-- Ensure all dependencies are installed correctly.
-- Verify environment variables are correctly set.
-
 
