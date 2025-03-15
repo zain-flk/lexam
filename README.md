@@ -1,6 +1,8 @@
 
 **Developer Guide: Local Setup**
 
+PS: This example doesn't include file upload part, as that was done manually.
+
 ## Prerequisites
 Before setting up the project locally, ensure you have the following installed:
 - **Go** (latest stable version)
