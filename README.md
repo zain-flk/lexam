@@ -37,6 +37,15 @@ DEST_PATH=your-destination-path
 ```sh
 go run main.go
 ```
-```
+
+### Issue and Diagram:
+Detailed Issues and Observations
+Each process currently takes 30 seconds to complete on the server. However, 90% of this time is spent acquiring node_modules and running npx wrangler build, which significantly impacts overall efficiency and cost. Optimizing or caching these steps could greatly reduce execution time and lower infrastructure costs.
+
+Additionally, the current approach lacks scalability compared to solutions that leverage dynamic VM or container-based environments such as Kubernetes (k8s). These environments can spin up new instances on demand, handling higher workloads more efficiently.
+
+There are a total of three different process flows, but only one has been tested so far. The other flows need further experimentation to evaluate their performance and scalability.
+![Diagram](diagram.png)
+
 
 
