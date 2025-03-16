@@ -16,6 +16,7 @@ import (
 
 func CreateS3Client() (*s3.Client, error) {
 	cfg, err := config.LoadDefaultConfig(context.TODO(),
+		config.WithRegion("auto"),
 		config.WithCredentialsProvider(credentials.NewStaticCredentialsProvider(
 			env.ACCESS_KEY, env.SECRET_KEY, "",
 		)),

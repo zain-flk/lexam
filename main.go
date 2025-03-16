@@ -55,7 +55,7 @@ func worker(id int, jobs <-chan queue.QueueData, wg *sync.WaitGroup, client *s3.
 		executeCommand(wranglerCmd1)
 
 		config.GenerateWranglerConfig(wranglerConfig, job.ProjectName)
-		wranglerCmd2 := fmt.Sprintf("cp downloads/%s %s/src/index.ts && cd %s && npm install && npx wrangler build && npx wrangler deploy && rm -rf %s", job.FileName, job.ProjectName, job.ProjectName, job.ProjectName)
+		wranglerCmd2 := fmt.Sprintf("cp downloads/%s %s/src/index.ts && cd %s && pnpm install && npx wrangler deploy && rm -rf ../%s", job.FileName, job.ProjectName, job.ProjectName, job.ProjectName)
 		executeCommand(wranglerCmd2)
 
 		elapsed := time.Since(startTime) // Calculate job time

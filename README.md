@@ -1,7 +1,8 @@
+[View Cost Details](cost.md)
 
 **Developer Guide: Local Setup**
 
-PS: This example doesn't include file upload part, as that was done manually. 
+PS: Code example doesn't include file upload part, as that was done manually. 
 Core focus was acquiring all the files and then process them to calculate the cost and time of each process.
 
 
