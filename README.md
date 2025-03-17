@@ -1,4 +1,4 @@
-[View Cost Details](cost.md)
+[💰 View Cost Details](cost.md) 
 
 **Developer Guide: Local Setup**
 
@@ -38,6 +38,7 @@ DEST_PATH=your-destination-path
 ```sh
 go run main.go
 ```
+## [📜 All Rights Reserved](rights.md)
 
 ### Issue and Diagram:
 Detailed Issues and Observations
@@ -47,6 +48,7 @@ Additionally, the current approach lacks scalability compared to solutions that 
 
 There are a total of three different process flows, but only one has been tested so far. The other flows need further experimentation to evaluate their performance and scalability.
 ![Diagram](diagram.png)
+
 
 
 
